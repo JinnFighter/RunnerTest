@@ -8,6 +8,7 @@ namespace Start
     public class GameInstaller : MonoInstaller
     {
         [SerializeField] private ViewContainer _viewContainer;
+        [SerializeField] private PlayerView _playerView;
         [SerializeField] private UiView _uiView;
         
         public override void InstallBindings()
@@ -30,6 +31,7 @@ namespace Start
         private void BindScene()
         {
             Container.Bind<ViewContainer>().FromInstance(_viewContainer).AsSingle();
+            Container.Bind<PlayerView>().FromInstance(_playerView).AsSingle();
             Container.Bind<UiView>().FromInstance(_uiView).AsSingle();
         }
     }
