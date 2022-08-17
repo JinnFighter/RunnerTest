@@ -9,6 +9,7 @@ namespace Presenters.Player
     public class PlayerPresenter : IPresenter
     {
         [Inject] private readonly PlayerModel _playerModel;
+        [Inject] private readonly ScoreModel _scoreModel;
         [Inject] private readonly UpdaterRunner _updaterRunner;
         [Inject] private readonly InputActions _inputActions;
         [Inject] private readonly PlayerView _playerView;
@@ -28,6 +29,7 @@ namespace Presenters.Player
                 {
                     new PlayerInputPresenter(_playerModel, _inputActions),
                     new PlayerMovementPresenter(_playerModel, _updaterRunner, _playerView),
+                    new PlayerPickUpCoinPresenter(_playerModel, _scoreModel),
                 }
             );
             
