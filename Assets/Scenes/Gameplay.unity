@@ -293,6 +293,7 @@ MonoBehaviour:
   _obstacleView: {fileID: 6034924601089725328, guid: a2c61216470a1e3469d465c957eb4453, type: 3}
   _uiView: {fileID: 1681013438}
   _gameOverView: {fileID: 6018537160653270430, guid: 6c927279125ff3341bf5c2b776d21306, type: 3}
+  _roadBuilderDescription: {fileID: 11400000, guid: 24473678b01798243802e9baddaec9d7, type: 2}
 --- !u!1 &451923991
 GameObject:
   m_ObjectHideFlags: 0
