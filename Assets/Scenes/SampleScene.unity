@@ -289,6 +289,8 @@ MonoBehaviour:
   _roadStartTileView: {fileID: 485566252}
   _roadMiddleTileView: {fileID: 531010764767785905, guid: 9cb10836a20213148a837b5de1ce0392, type: 3}
   _roadFinishTileView: {fileID: 8212346214723415407, guid: fd4f1d09a5841014387fac246db0b3e1, type: 3}
+  _coinView: {fileID: 6887515005946496610, guid: af3f1e0fdd2c8a04ca41a964b5196a49, type: 3}
+  _obstacleView: {fileID: 6034924601089725328, guid: a2c61216470a1e3469d465c957eb4453, type: 3}
   _uiView: {fileID: 1681013438}
   _gameOverView: {fileID: 6018537160653270430, guid: 6c927279125ff3341bf5c2b776d21306, type: 3}
 --- !u!1 &451923991

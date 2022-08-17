@@ -12,6 +12,8 @@ namespace Start
         [SerializeField] private RoadStartTileView _roadStartTileView;
         [SerializeField] private RoadMiddleTileView _roadMiddleTileView;
         [SerializeField] private RoadFinishTileView _roadFinishTileView;
+        [SerializeField] private CoinView _coinView;
+        [SerializeField] private ObstacleView _obstacleView;
         [SerializeField] private UiView _uiView;
         [SerializeField] private GameOverView _gameOverView;
         
@@ -27,6 +29,8 @@ namespace Start
         {
             Container.Bind<RoadMiddleTileView>().FromInstance(_roadMiddleTileView).AsSingle();
             Container.Bind<RoadFinishTileView>().FromInstance(_roadFinishTileView).AsSingle();
+            Container.Bind<CoinView>().FromInstance(_coinView).AsSingle();
+            Container.Bind<ObstacleView>().FromInstance(_obstacleView).AsSingle();
             Container.Bind<GameOverView>().FromInstance(_gameOverView).AsSingle();
         }
 
