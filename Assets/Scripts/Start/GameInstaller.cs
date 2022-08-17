@@ -1,4 +1,8 @@
 using Containers;
+using Descriptions;
+using Helpers;
+using Models;
+using Presenters;
 using UnityEngine;
 using Views;
 using Zenject;
@@ -16,22 +20,41 @@ namespace Start
         [SerializeField] private ObstacleView _obstacleView;
         [SerializeField] private UiView _uiView;
         [SerializeField] private GameOverView _gameOverView;
+
+        [SerializeField] private RoadBuilderDescription _roadBuilderDescription;
         
         public override void InstallBindings()
         {
+            BindDescriptions();
+            BindModels();
             BindPrefabs();
             BindInput();
             BindScene();
             BindPresenters();
         }
 
+        private void BindModels()
+        {
+            Container.Bind<RoadBuilderModel>().AsSingle().NonLazy();
+        }
+
+        private void BindDescriptions()
+        {
+            Container.Bind<RoadBuilderDescription>().FromScriptableObject(_roadBuilderDescription).AsSingle();
+        }
+
         private void BindPrefabs()
         {
-            Container.Bind<RoadMiddleTileView>().FromInstance(_roadMiddleTileView).AsSingle();
-            Container.Bind<RoadFinishTileView>().FromInstance(_roadFinishTileView).AsSingle();
-            Container.Bind<CoinView>().FromInstance(_coinView).AsSingle();
-            Container.Bind<ObstacleView>().FromInstance(_obstacleView).AsSingle();
-            Container.Bind<GameOverView>().FromInstance(_gameOverView).AsSingle();
+            Container.Bind<IContent<RoadMiddleTileView>>()
+                .FromInstance(new InstantiatedContent<RoadMiddleTileView>(_roadMiddleTileView)).AsSingle();
+            Container.Bind<IContent<RoadFinishTileView>>()
+                .FromInstance(new InstantiatedContent<RoadFinishTileView>(_roadFinishTileView)).AsSingle();
+            Container.Bind<IContent<CoinView>>()
+                .FromInstance(new InstantiatedContent<CoinView>(_coinView)).AsSingle();
+            Container.Bind<IContent<ObstacleView>>()
+                .FromInstance(new InstantiatedContent<ObstacleView>(_obstacleView)).AsSingle();
+            Container.Bind<IContent<GameOverView>>()
+                .FromInstance(new InstantiatedContent<GameOverView>(_gameOverView)).AsSingle();
         }
 
         private void BindInput()
@@ -41,6 +64,7 @@ namespace Start
 
         private void BindPresenters()
         {
+            Container.Bind<RoadBuilderPresenter>().AsSingle();
             Container.Bind<PresenterContainer>().AsSingle();
         }
 
