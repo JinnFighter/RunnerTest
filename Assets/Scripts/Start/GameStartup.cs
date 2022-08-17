@@ -1,5 +1,6 @@
 using Containers;
 using UnityEngine;
+using Updaters;
 using Zenject;
 
 namespace Start
@@ -7,6 +8,7 @@ namespace Start
     public class GameStartup : MonoBehaviour
     {
         [Inject] private PresenterContainer _presenterContainer;
+        [Inject] private UpdaterRunner _updaterRunner;
 
         private void Start()
         {
@@ -14,6 +16,11 @@ namespace Start
             {
                 presenter.Enable();
             }
+        }
+
+        private void Update()
+        {
+            _updaterRunner.Run(Time.deltaTime);
         }
 
         private void OnDestroy()

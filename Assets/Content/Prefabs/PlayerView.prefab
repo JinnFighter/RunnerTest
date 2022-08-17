@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80cb05bea33122f438a097713274d0ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 1641331138433461528}
   <ColliderView>k__BackingField: {fileID: 4019994245477259408}
 --- !u!114 &4019994245477259408
 MonoBehaviour:
