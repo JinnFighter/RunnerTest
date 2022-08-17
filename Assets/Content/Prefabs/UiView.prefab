@@ -60,6 +60,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968b9dd4f5d2de14bb54ab2c994dfd29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ScoreView>k__BackingField: {fileID: 4346475907042411720}
+  <ScoreRecordView>k__BackingField: {fileID: 5703663138278541117}
 --- !u!1 &3799393785970134646
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,6 +73,7 @@ GameObject:
   - component: {fileID: 611261312174071602}
   - component: {fileID: 2632619637037742917}
   - component: {fileID: 4855873947097430641}
+  - component: {fileID: 4346475907042411720}
   m_Layer: 0
   m_Name: ScoreText
   m_TagString: Untagged
@@ -195,6 +198,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4346475907042411720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3799393785970134646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b81b5480e6805f34bb3dc167382f9e46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scoreText: {fileID: 4855873947097430641}
 --- !u!1 &7541794907821697525
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,6 +222,7 @@ GameObject:
   - component: {fileID: 3495857625911139393}
   - component: {fileID: 1152290650179453558}
   - component: {fileID: 8061946473226236979}
+  - component: {fileID: 5703663138278541117}
   m_Layer: 0
   m_Name: RecordText
   m_TagString: Untagged
@@ -330,3 +347,16 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5703663138278541117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7541794907821697525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfbaa222b665c3a4183e2c930b120bf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scoreRecordText: {fileID: 8061946473226236979}

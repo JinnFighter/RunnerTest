@@ -30,6 +30,12 @@ namespace Models
             StrafeSpeed = playerDescription.StrafeSpeed;
         }
 
+        public void PickUpCoin()
+        {
+            CoinPickedUp?.Invoke();
+        }
+
         public event Action<bool> IsAliveChanged;
+        public event Action CoinPickedUp;
     }
 }

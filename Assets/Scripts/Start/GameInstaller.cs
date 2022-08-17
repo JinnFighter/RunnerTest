@@ -4,6 +4,8 @@ using Helpers;
 using Models;
 using Presenters;
 using Presenters.Player;
+using Presenters.Score;
+using Presenters.Ui;
 using UnityEngine;
 using Updaters;
 using Views;
@@ -47,6 +49,7 @@ namespace Start
             Container.Bind<RoadBuilderModel>().AsSingle().NonLazy();
             Container.Bind<PlayerModel>().AsSingle().NonLazy();
             Container.Bind<GameStateModel>().AsSingle().NonLazy();
+            Container.Bind<ScoreModel>().AsSingle().NonLazy();
         }
 
         private void BindDescriptions()
@@ -78,8 +81,10 @@ namespace Start
 
         private void BindPresenters()
         {
+            Container.Bind<ScorePresenter>().AsSingle();
             Container.Bind<RoadBuilderPresenter>().AsSingle();
             Container.Bind<PlayerPresenter>().AsSingle();
+            Container.Bind<UiPresenter>().AsSingle();
             
             Container.Bind<PresenterContainer>().AsSingle();
         }
