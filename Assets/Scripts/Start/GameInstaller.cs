@@ -3,7 +3,9 @@ using Descriptions;
 using Helpers;
 using Models;
 using Presenters;
+using Presenters.Player;
 using UnityEngine;
+using Updaters;
 using Views;
 using Zenject;
 
@@ -21,26 +23,36 @@ namespace Start
         [SerializeField] private UiView _uiView;
         [SerializeField] private GameOverView _gameOverView;
 
+        [SerializeField] private PlayerDescription _playerDescription;
         [SerializeField] private RoadBuilderDescription _roadBuilderDescription;
         
         public override void InstallBindings()
         {
             BindDescriptions();
             BindModels();
+            BindHelpers();
             BindPrefabs();
             BindInput();
             BindScene();
             BindPresenters();
         }
 
+        private void BindHelpers()
+        {
+            Container.Bind<UpdaterRunner>().AsSingle();
+        }
+
         private void BindModels()
         {
             Container.Bind<RoadBuilderModel>().AsSingle().NonLazy();
+            Container.Bind<PlayerModel>().AsSingle().NonLazy();
+            Container.Bind<GameStateModel>().AsSingle().NonLazy();
         }
 
         private void BindDescriptions()
         {
             Container.Bind<RoadBuilderDescription>().FromScriptableObject(_roadBuilderDescription).AsSingle();
+            Container.Bind<PlayerDescription>().FromScriptableObject(_playerDescription).AsSingle();
         }
 
         private void BindPrefabs()
@@ -59,12 +71,16 @@ namespace Start
 
         private void BindInput()
         {
-            Container.Bind<InputActions>().AsSingle();
+            var inputActions = new InputActions();
+            inputActions.Enable();
+            Container.Bind<InputActions>().FromInstance(inputActions).AsSingle();
         }
 
         private void BindPresenters()
         {
             Container.Bind<RoadBuilderPresenter>().AsSingle();
+            Container.Bind<PlayerPresenter>().AsSingle();
+            
             Container.Bind<PresenterContainer>().AsSingle();
         }
 
