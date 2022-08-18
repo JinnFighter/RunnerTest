@@ -1,5 +1,4 @@
 using Models;
-using UnityEngine;
 
 namespace Presenters.Player
 {
@@ -24,7 +23,7 @@ namespace Presenters.Player
             _playerModel.CoinPickedUp += OnCoinPickedUp;
         }
 
-        private void OnCoinPickedUp(Vector3 position)
+        private void OnCoinPickedUp()
         {
             _scoreModel.Score++;
         }
