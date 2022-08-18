@@ -6,6 +6,6 @@ namespace Descriptions
     public class PlayerDescription : ScriptableObject
     {
         [field: SerializeField] public float MoveSpeed { get; private set; } = 3f;
-        [field: SerializeField] public float StrafeSpeed { get; private set; } = 0.3f;
+        [field: SerializeField] public float ShiftAmount { get; private set; } = 1.5f;
     }
 }

@@ -47,9 +47,12 @@ namespace Presenters.Ui
 
         private void DisableWindow()
         {
-            _gameOverView.NewRecordGameObject.SetActive(false);
-            _gameOverView.RestartButton.onClick.RemoveListener(OnRestartButtonClicked);
-            _gameOverView.gameObject.SetActive(false);
+            if (_gameOverView != null)
+            {
+                _gameOverView.NewRecordGameObject.SetActive(false);
+                _gameOverView.RestartButton.onClick.RemoveListener(OnRestartButtonClicked);
+                _gameOverView.gameObject.SetActive(false);
+            }
         }
 
         private void OnIsActiveChanged(bool isActive)

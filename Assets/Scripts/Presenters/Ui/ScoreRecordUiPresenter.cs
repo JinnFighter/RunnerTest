@@ -6,6 +6,7 @@ namespace Presenters.Ui
     public class ScoreRecordUiPresenter : IPresenter
     {
         private readonly ScoreModel _scoreModel;
+        private readonly ScoreRecordView _scoreRecordView;
 
         public ScoreRecordUiPresenter(ScoreModel scoreModel, ScoreRecordView scoreRecordView)
         {
@@ -13,8 +14,6 @@ namespace Presenters.Ui
             _scoreRecordView = scoreRecordView;
         }
 
-        private readonly ScoreRecordView _scoreRecordView;
-        
         public void Disable()
         {
             _scoreModel.ScoreChanged -= OnScoreChanged;
