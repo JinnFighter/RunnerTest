@@ -1,5 +1,4 @@
 using Models;
-using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Presenters.Player
@@ -7,45 +6,55 @@ namespace Presenters.Player
     public class PlayerInputPresenter : IPresenter
     {
         private readonly PlayerModel _playerModel;
-        private readonly InputActions _inputActions;
+        private readonly InputActions.PlayerActions _playerActions;
 
         public PlayerInputPresenter(PlayerModel playerModel, InputActions inputActions)
         {
             _playerModel = playerModel;
-            _inputActions = inputActions;
+            _playerActions = inputActions.Player;
         }
 
         public void Disable()
         {
-            _inputActions.Player.MouseDelta.performed -= OnMouseDeltaPerformed;
+            _playerActions.MoveLeft.performed -= OnMoveLeftPerformed;
+            _playerActions.MoveRight.performed -= OnMoveRightPerformed;
         }
 
         public void Enable()
         {
-            _inputActions.Player.MouseDelta.performed += OnMouseDeltaPerformed;
+            _playerActions.MoveLeft.performed += OnMoveLeftPerformed;
+            _playerActions.MoveRight.performed += OnMoveRightPerformed;
         }
 
-        private void OnMouseDeltaPerformed(InputAction.CallbackContext context)
+        private void OnMoveLeftPerformed(InputAction.CallbackContext obj)
         {
-            var delta = context.ReadValue<Vector2>();
-            if(delta.magnitude >= 1f)
+            switch (_playerModel.MoveDirection)
             {
-                if(Vector2.Angle(delta.normalized, Vector2.left) < 35f)
-                {
-                    _playerModel.StrafeDirection = Vector3.left;
-                }
-                else if(Vector2.Angle(delta.normalized, Vector2.right) < 35f)
-                {
-                    _playerModel.StrafeDirection = Vector3.right;
-                }
-                else
-                {
-                    _playerModel.StrafeDirection = Vector3.zero;
-                }
+                case MoveDirection.Middle:
+                    _playerModel.MoveDirection = MoveDirection.Left;
+                    break;
+                case MoveDirection.Right:
+                    _playerModel.MoveDirection = MoveDirection.Middle;
+                    break;
+                case MoveDirection.Left:
+                default:
+                    break;
             }
-            else
+        }
+        
+        private void OnMoveRightPerformed(InputAction.CallbackContext obj)
+        {
+            switch (_playerModel.MoveDirection)
             {
-                _playerModel.StrafeDirection = Vector3.zero;
+                case MoveDirection.Middle:
+                    _playerModel.MoveDirection = MoveDirection.Right;
+                    break;
+                case MoveDirection.Left:
+                    _playerModel.MoveDirection = MoveDirection.Middle;
+                    break;
+                case MoveDirection.Right:
+                default:
+                    break;
             }
         }
     }

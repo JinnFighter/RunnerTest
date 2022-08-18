@@ -20,15 +20,36 @@ namespace Models
             }
         }
         
-        public float MoveSpeed;
-        public float StrafeSpeed;
-        public Vector3 StrafeDirection;
+        public readonly float MoveSpeed;
+        public readonly float ShiftAmount;
         public Vector3 Position;
+
+        private MoveDirection _moveDirection = MoveDirection.Middle;
+        public MoveDirection MoveDirection
+        {
+            get => _moveDirection;
+            set
+            {
+                if (_moveDirection != value)
+                {
+                    if (_moveDirection < value)
+                    {
+                        ShiftRightEvent?.Invoke();
+                    }
+                    else if (_moveDirection > value)
+                    {
+                        ShiftLeftEvent?.Invoke();
+                    }
+                    
+                    _moveDirection = value;
+                }
+            }
+        }
 
         public PlayerModel(PlayerDescription playerDescription)
         {
             MoveSpeed = playerDescription.MoveSpeed;
-            StrafeSpeed = playerDescription.StrafeSpeed;
+            ShiftAmount = playerDescription.ShiftAmount;
         }
 
         public void PickUpCoin()
@@ -38,5 +59,14 @@ namespace Models
 
         public event Action<bool> IsAliveChanged;
         public event Action CoinPickedUp;
+        public event Action ShiftLeftEvent;
+        public event Action ShiftRightEvent;
+    }
+
+    public enum MoveDirection
+    {
+        Left,
+        Middle,
+        Right,
     }
 }

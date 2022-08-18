@@ -12,7 +12,12 @@ namespace Presenters.Score
         public void Disable()
         {
             _gameStateModel.IsActiveChanged -= OnIsActiveChanged;
+            if (_scoreModel.Score > _scoreModel.RecordScore)
+            {
+                _scoreModel.RecordScore = _scoreModel.Score;
+            }
             PlayerPrefs.SetInt("ScoreRecord", _scoreModel.RecordScore);
+            PlayerPrefs.Save();
         }
 
         public void Enable()
@@ -24,6 +29,7 @@ namespace Presenters.Score
             else
             {
                 PlayerPrefs.SetInt("ScoreRecord", _scoreModel.RecordScore);
+                PlayerPrefs.Save();
             }
             
             _gameStateModel.IsActiveChanged += OnIsActiveChanged;
@@ -36,6 +42,7 @@ namespace Presenters.Score
                 if (_scoreModel.Score > _scoreModel.RecordScore)
                 {
                     PlayerPrefs.SetInt("ScoreRecord", _scoreModel.Score);
+                    PlayerPrefs.Save();
                 }
             }
         }
