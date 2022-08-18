@@ -33,6 +33,7 @@ namespace Presenters.Player
                     new PlayerPickUpCoinPresenter(_playerModel, _scoreModel),
                     new PlayerCollisionPresenter(_playerModel, _playerView),
                     new PlayerGameStatePresenter(_playerModel, _gameStateModel),
+                    new PlayerPhysicsPresenter(_playerModel, _playerView),
                 }
             );
             
