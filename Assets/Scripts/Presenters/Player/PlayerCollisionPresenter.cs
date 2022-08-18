@@ -32,7 +32,7 @@ namespace Presenters.Player
             var gameObject = collider.gameObject;
             if (gameObject.CompareTag("Coin"))
             {
-                _playerModel.PickUpCoin();
+                _playerModel.PickUpCoin(gameObject.transform.position);
                 Object.Destroy(gameObject);
             }
             else if (gameObject.CompareTag("Finish"))
