@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreText: {fileID: 4855873947097430641}
+  _coinImage: {fileID: 8988496837902630884}
 --- !u!114 &1017986980101631036
 MonoBehaviour:
   m_ObjectHideFlags: 0
