@@ -17,7 +17,7 @@ namespace Presenters.Player
         public void Disable()
         {
             _playerModel.IsAliveChanged -= OnIsAliveChanged;
-            if (_playerModel.IsAlive)
+            if (_playerModel.IsAlive && _playerView != null)
             {
                 _playerView.DisablePhysics();
             }
