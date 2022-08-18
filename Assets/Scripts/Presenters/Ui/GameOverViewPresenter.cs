@@ -32,7 +32,7 @@ namespace Presenters.Ui
 
         private void EnableWindow()
         {
-            _gameOverView.GameObject.transform.localScale = Vector3.zero;
+            _gameOverView.transform.localScale = Vector3.zero;
             LeanTween.scale(_gameOverView.GameObject, Vector3.one, 0.8f);
             _gameOverView.GameObject.SetActive(true);
             _gameOverView.SetScore(_scoreModel.Score);
