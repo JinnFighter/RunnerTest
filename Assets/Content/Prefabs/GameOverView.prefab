@@ -620,6 +620,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4060a3ab8056847b87b35470771b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scoreText: {fileID: 6018537160143346666}
+  <RestartButton>k__BackingField: {fileID: 6018537160147521558}
+  <NewRecordGameObject>k__BackingField: {fileID: 6018537160288984755}
 --- !u!1 &6018537160750398933
 GameObject:
   m_ObjectHideFlags: 0

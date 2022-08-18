@@ -33,7 +33,10 @@ namespace Presenters.Score
         {
             if (!isActive)
             {
-                PlayerPrefs.SetInt("ScoreRecord", _scoreModel.RecordScore);
+                if (_scoreModel.Score > _scoreModel.RecordScore)
+                {
+                    PlayerPrefs.SetInt("ScoreRecord", _scoreModel.Score);
+                }
             }
         }
     }

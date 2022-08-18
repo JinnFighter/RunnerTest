@@ -12,12 +12,14 @@ namespace Containers
         [Inject] private readonly RoadBuilderPresenter _roadBuilderPresenter;
         [Inject] private readonly PlayerPresenter _playerPresenter;
         [Inject] private readonly UiPresenter _uiPresenter;
-        
+        [Inject] private readonly GameOverViewPresenter _gameOverViewPresenter;
+
         public IEnumerator<IPresenter> GetEnumerator()
         {
             yield return _roadBuilderPresenter;
             yield return _playerPresenter;
             yield return _uiPresenter;
+            yield return _gameOverViewPresenter;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
