@@ -17,16 +17,18 @@ namespace Presenters
         [Inject] private readonly IContent<ObstacleView> _obstacleContent;
         [Inject] private readonly ChanceChecker _chanceChecker;
 
-        private readonly List<RoadTileView> _views = new();
+        private readonly Queue<RoadTileView> _views = new();
 
         public void Disable()
         {
-            foreach (var roadTileView in _views)
+            while (_views.Count > 0)
             {
-                Object.Destroy(roadTileView.gameObject);
+                var view = _views.Dequeue();
+                if (view != null)
+                {
+                    Object.Destroy(view.gameObject);
+                }
             }
-            
-            _views.Clear();
         }
 
         public void Enable()
@@ -40,7 +42,7 @@ namespace Presenters
                     ? SpawnMiddleTileView()
                     : SpawnFinishTileView();
                 
-                _views.Add(view);
+                _views.Enqueue(view);
                 
                 _roadBuilderModel.SpawnPosition = view.transform.position + Vector3.forward * view.TileLength;
             }
@@ -51,11 +53,11 @@ namespace Presenters
             var tileView = _middleTileContent.Generate(_roadBuilderModel.SpawnPosition);
             foreach (var spawnPoint in tileView.SpawnPoints)
             {
-                if (_chanceChecker.IsProc(50))
+                if (_chanceChecker.IsProc(_roadBuilderModel.CoinSpawnChance))
                 {
                     _coinContent.Generate(spawnPoint.position);
                 }
-                else if (_chanceChecker.IsProc(30))
+                else if (_chanceChecker.IsProc(_roadBuilderModel.ObstacleSpawnChance))
                 {
                     _obstacleContent.Generate(spawnPoint.position);
                 }
