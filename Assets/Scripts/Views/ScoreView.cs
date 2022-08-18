@@ -7,6 +7,6 @@ namespace Views
     {
         [SerializeField] private TextMeshProUGUI _scoreText;
 
-        public void SetScore(int score) => _scoreText.text = $"Score: {score}";
+        public void SetScore(int score) => _scoreText.text = $"{score}";
     }
 }
