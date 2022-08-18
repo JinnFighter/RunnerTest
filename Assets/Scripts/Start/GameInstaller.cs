@@ -25,10 +25,8 @@ namespace Start
         [SerializeField] private GameOverView _gameOverView;
         [SerializeField] private AudioView _audioView;
 
-        [SerializeField] private PlayerDescription _playerDescription;
-        [SerializeField] private RoadBuilderDescription _roadBuilderDescription;
-        [SerializeField] private AudioDescription _audioDescription;
-        
+        [SerializeField] private DescriptionsContainer _descriptionsContainer;
+
         public override void InstallBindings()
         {
             BindDescriptions();
@@ -56,9 +54,9 @@ namespace Start
 
         private void BindDescriptions()
         {
-            Container.Bind<RoadBuilderDescription>().FromScriptableObject(_roadBuilderDescription).AsSingle();
-            Container.Bind<PlayerDescription>().FromScriptableObject(_playerDescription).AsSingle();
-            Container.Bind<AudioDescription>().FromScriptableObject(_audioDescription).AsSingle();
+            Container.Bind<RoadBuilderDescription>().FromScriptableObject(_descriptionsContainer.RoadBuilderDescription).AsSingle();
+            Container.Bind<PlayerDescription>().FromScriptableObject(_descriptionsContainer.PlayerDescription).AsSingle();
+            Container.Bind<AudioDescription>().FromScriptableObject(_descriptionsContainer.AudioDescription).AsSingle();
         }
 
         private void BindPrefabs()

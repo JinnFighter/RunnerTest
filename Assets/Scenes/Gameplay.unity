@@ -277,9 +277,7 @@ MonoBehaviour:
   _uiView: {fileID: 1681013438}
   _gameOverView: {fileID: 1350651733}
   _audioView: {fileID: 1609172008}
-  _playerDescription: {fileID: 11400000, guid: 78aa5fdd55883b64191cb33c24d88c42, type: 2}
-  _roadBuilderDescription: {fileID: 11400000, guid: 24473678b01798243802e9baddaec9d7, type: 2}
-  _audioDescription: {fileID: 11400000, guid: 9afc838e351f3f14a9555e01a9a255ba, type: 2}
+  _descriptionsContainer: {fileID: 11400000, guid: 2f71804e8fa1aa74ab7e3f8fa8c87568, type: 2}
 --- !u!1 &451923991
 GameObject:
   m_ObjectHideFlags: 0
