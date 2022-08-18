@@ -23,6 +23,7 @@ namespace Start
         [SerializeField] private ObstacleView _obstacleView;
         [SerializeField] private UiView _uiView;
         [SerializeField] private GameOverView _gameOverView;
+        [SerializeField] private ParticleView _particleView;
 
         [SerializeField] private PlayerDescription _playerDescription;
         [SerializeField] private RoadBuilderDescription _roadBuilderDescription;
@@ -93,6 +94,7 @@ namespace Start
             Container.Bind<RoadStartTileView>().FromInstance(_roadStartTileView).AsSingle();
             Container.Bind<UiView>().FromInstance(_uiView).AsSingle();
             Container.Bind<GameOverView>().FromInstance(_gameOverView).AsSingle();
+            Container.Bind<ParticleView>().FromInstance(_particleView).AsSingle();
         }
     }
 }
