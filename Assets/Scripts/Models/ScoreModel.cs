@@ -14,29 +14,12 @@ namespace Models
                 {
                     _score = value;
                     ScoreChanged?.Invoke(_score);
-                    if (_score > RecordScore)
-                    {
-                        RecordScore = _score;
-                    }
                 }
             }
         }
 
-        private int _recordScore;
-        public int RecordScore
-        {
-            get => _recordScore;
-            set
-            {
-                if (_recordScore != value)
-                {
-                    _recordScore = value;
-                    RecordScoreChanged?.Invoke(_recordScore);
-                }
-            }
-        }
-
+        public int RecordScore;
+        
         public event Action<int> ScoreChanged;
-        public event Action<int> RecordScoreChanged;
     }
 }

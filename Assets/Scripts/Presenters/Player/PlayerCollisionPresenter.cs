@@ -18,11 +18,23 @@ namespace Presenters.Player
         public void Disable()
         {
             _playerView.ColliderView.CollisionEnterEvent -= CollisionEnterEvent;
+            _playerView.ColliderView.TriggerEnterEvent -= TriggerEnterEvent;
         }
 
         public void Enable()
         {
             _playerView.ColliderView.CollisionEnterEvent += CollisionEnterEvent;
+            _playerView.ColliderView.TriggerEnterEvent += TriggerEnterEvent;
+        }
+
+        private void TriggerEnterEvent(Collider collider)
+        {
+            var gameObject = collider.gameObject;
+            if (gameObject.CompareTag("Coin"))
+            {
+                _playerModel.PickUpCoin();
+                Object.Destroy(gameObject);
+            }
         }
 
         private void CollisionEnterEvent(Collision collision)
@@ -31,10 +43,6 @@ namespace Presenters.Player
             if (gameObject.CompareTag("Obstacle") || gameObject.CompareTag("Finish"))
             {
                 _playerModel.IsAlive = false;
-            }
-            else if (gameObject.CompareTag("Coin"))
-            {
-                _playerModel.PickUpCoin();
             }
         }
     }

@@ -13,6 +13,9 @@ namespace Presenters
         [Inject] private readonly RoadStartTileView _roadStartTileView;
         [Inject] private readonly IContent<RoadMiddleTileView> _middleTileContent;
         [Inject] private readonly IContent<RoadFinishTileView> _finishTileContent;
+        [Inject] private readonly IContent<CoinView> _coinContent;
+        [Inject] private readonly IContent<ObstacleView> _obstacleContent;
+        [Inject] private readonly ChanceChecker _chanceChecker;
 
         private readonly List<RoadTileView> _views = new();
 
@@ -33,14 +36,36 @@ namespace Presenters
 
             for (var i = 0; i < _roadBuilderModel.RoadLength; i++)
             {
-                RoadTileView view = i < _roadBuilderModel.RoadLength - 1
-                    ? _middleTileContent.Generate(_roadBuilderModel.SpawnPosition)
-                    : _finishTileContent.Generate(_roadBuilderModel.SpawnPosition);
+                var view = i < _roadBuilderModel.RoadLength - 1
+                    ? SpawnMiddleTileView()
+                    : SpawnFinishTileView();
                 
                 _views.Add(view);
                 
                 _roadBuilderModel.SpawnPosition = view.transform.position + Vector3.forward * view.TileLength;
             }
+        }
+
+        private RoadTileView SpawnMiddleTileView()
+        {
+            var tileView = _middleTileContent.Generate(_roadBuilderModel.SpawnPosition);
+            foreach (var spawnPoint in tileView.SpawnPoints)
+            {
+                if (_chanceChecker.IsProc(50))
+                {
+                    _coinContent.Generate(spawnPoint.position);
+                }
+                else if (_chanceChecker.IsProc(30))
+                {
+                    _obstacleContent.Generate(spawnPoint.position);
+                }
+            }
+            return tileView;
+        }
+
+        private RoadTileView SpawnFinishTileView()
+        {
+            return _finishTileContent.Generate(_roadBuilderModel.SpawnPosition);
         }
     }
 }

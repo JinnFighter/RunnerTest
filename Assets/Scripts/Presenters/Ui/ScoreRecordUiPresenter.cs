@@ -17,18 +17,21 @@ namespace Presenters.Ui
         
         public void Disable()
         {
-            _scoreModel.RecordScoreChanged -= OnRecordScoreChanged;
+            _scoreModel.ScoreChanged -= OnScoreChanged;
         }
 
         public void Enable()
         {
-            _scoreModel.RecordScoreChanged += OnRecordScoreChanged;
+            _scoreModel.ScoreChanged += OnScoreChanged;
             _scoreRecordView.SetScoreRecord(_scoreModel.RecordScore);
         }
 
-        private void OnRecordScoreChanged(int scoreRecord)
+        private void OnScoreChanged(int score)
         {
-            _scoreRecordView.SetScoreRecord(scoreRecord);
+            if (score > _scoreModel.RecordScore)
+            {
+                _scoreRecordView.SetScoreRecord(score);
+            }
         }
     }
 }

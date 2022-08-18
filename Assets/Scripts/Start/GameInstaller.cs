@@ -42,6 +42,7 @@ namespace Start
         private void BindHelpers()
         {
             Container.Bind<UpdaterRunner>().AsSingle();
+            Container.Bind<ChanceChecker>().AsSingle();
         }
 
         private void BindModels()
@@ -68,8 +69,6 @@ namespace Start
                 .FromInstance(new InstantiatedContent<CoinView>(_coinView)).AsSingle();
             Container.Bind<IContent<ObstacleView>>()
                 .FromInstance(new InstantiatedContent<ObstacleView>(_obstacleView)).AsSingle();
-            Container.Bind<IContent<GameOverView>>()
-                .FromInstance(new InstantiatedContent<GameOverView>(_gameOverView)).AsSingle();
         }
 
         private void BindInput()
@@ -85,6 +84,7 @@ namespace Start
             Container.Bind<RoadBuilderPresenter>().AsSingle();
             Container.Bind<PlayerPresenter>().AsSingle();
             Container.Bind<UiPresenter>().AsSingle();
+            Container.Bind<GameOverViewPresenter>().AsSingle();
             
             Container.Bind<PresenterContainer>().AsSingle();
         }
@@ -95,6 +95,7 @@ namespace Start
             Container.Bind<PlayerView>().FromInstance(_playerView).AsSingle();
             Container.Bind<RoadStartTileView>().FromInstance(_roadStartTileView).AsSingle();
             Container.Bind<UiView>().FromInstance(_uiView).AsSingle();
+            Container.Bind<GameOverView>().FromInstance(_gameOverView).AsSingle();
         }
     }
 }
