@@ -25,5 +25,15 @@ namespace Views
         {
             _rigidbody.MovePosition(position);
         }
+
+        public void EnablePhysics()
+        {
+            _rigidbody.isKinematic = false;
+        }
+
+        public void DisablePhysics()
+        {
+            _rigidbody.isKinematic = true;
+        }
     }
 }

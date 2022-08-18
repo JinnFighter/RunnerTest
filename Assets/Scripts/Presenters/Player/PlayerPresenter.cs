@@ -28,11 +28,12 @@ namespace Presenters.Player
             (
                 new List<IPresenter>
                 {
-                    new PlayerInputPresenter(_playerModel, _inputActions),
+                    new PlayerInputPresenterWrapper(_playerModel, new PlayerInputPresenter(_playerModel, _inputActions.Player)),
                     new PlayerMovementPresenter(_playerModel, _updaterRunner, _playerView),
                     new PlayerPickUpCoinPresenter(_playerModel, _scoreModel),
                     new PlayerCollisionPresenter(_playerModel, _playerView),
                     new PlayerGameStatePresenter(_playerModel, _gameStateModel),
+                    new PlayerPhysicsPresenter(_playerModel, _playerView),
                 }
             );
             

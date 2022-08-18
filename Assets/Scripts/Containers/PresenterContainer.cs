@@ -15,6 +15,7 @@ namespace Containers
         [Inject] private readonly PlayerPresenter _playerPresenter;
         [Inject] private readonly UiPresenter _uiPresenter;
         [Inject] private readonly GameOverViewPresenter _gameOverViewPresenter;
+        [Inject] private readonly AudioPresenter _audioPresenter;
 
         public IEnumerator<IPresenter> GetEnumerator()
         {
@@ -23,6 +24,7 @@ namespace Containers
             yield return _playerPresenter;
             yield return _uiPresenter;
             yield return _gameOverViewPresenter;
+            yield return _audioPresenter;
         }
 
         IEnumerator IEnumerable.GetEnumerator()

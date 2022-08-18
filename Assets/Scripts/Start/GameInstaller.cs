@@ -18,15 +18,13 @@ namespace Start
         [SerializeField] private ViewContainer _viewContainer;
         [SerializeField] private PlayerView _playerView;
         [SerializeField] private RoadStartTileView _roadStartTileView;
-        [SerializeField] private RoadMiddleTileView _roadMiddleTileView;
-        [SerializeField] private CoinView _coinView;
-        [SerializeField] private ObstacleView _obstacleView;
         [SerializeField] private UiView _uiView;
         [SerializeField] private GameOverView _gameOverView;
+        [SerializeField] private AudioView _audioView;
 
-        [SerializeField] private PlayerDescription _playerDescription;
-        [SerializeField] private RoadBuilderDescription _roadBuilderDescription;
-        
+        [SerializeField] private PrefabsContainer _prefabsContainer;
+        [SerializeField] private DescriptionsContainer _descriptionsContainer;
+
         public override void InstallBindings()
         {
             BindDescriptions();
@@ -54,18 +52,19 @@ namespace Start
 
         private void BindDescriptions()
         {
-            Container.Bind<RoadBuilderDescription>().FromScriptableObject(_roadBuilderDescription).AsSingle();
-            Container.Bind<PlayerDescription>().FromScriptableObject(_playerDescription).AsSingle();
+            Container.Bind<RoadBuilderDescription>().FromScriptableObject(_descriptionsContainer.RoadBuilderDescription).AsSingle();
+            Container.Bind<PlayerDescription>().FromScriptableObject(_descriptionsContainer.PlayerDescription).AsSingle();
+            Container.Bind<AudioDescription>().FromScriptableObject(_descriptionsContainer.AudioDescription).AsSingle();
         }
 
         private void BindPrefabs()
         {
             Container.Bind<IContent<RoadMiddleTileView>>()
-                .FromInstance(new InstantiatedContent<RoadMiddleTileView>(_roadMiddleTileView)).AsSingle();
+                .FromInstance(new InstantiatedContent<RoadMiddleTileView>(_prefabsContainer.RoadMiddleTileView)).AsSingle();
             Container.Bind<IContent<CoinView>>()
-                .FromInstance(new InstantiatedContent<CoinView>(_coinView)).AsSingle();
+                .FromInstance(new InstantiatedContent<CoinView>(_prefabsContainer.CoinView)).AsSingle();
             Container.Bind<IContent<ObstacleView>>()
-                .FromInstance(new InstantiatedContent<ObstacleView>(_obstacleView)).AsSingle();
+                .FromInstance(new InstantiatedContent<ObstacleView>(_prefabsContainer.ObstacleView)).AsSingle();
         }
 
         private void BindInput()
@@ -82,6 +81,7 @@ namespace Start
             Container.Bind<PlayerPresenter>().AsSingle();
             Container.Bind<UiPresenter>().AsSingle();
             Container.Bind<GameOverViewPresenter>().AsSingle();
+            Container.Bind<AudioPresenter>().AsSingle();
             
             Container.Bind<PresenterContainer>().AsSingle();
         }
@@ -93,6 +93,7 @@ namespace Start
             Container.Bind<RoadStartTileView>().FromInstance(_roadStartTileView).AsSingle();
             Container.Bind<UiView>().FromInstance(_uiView).AsSingle();
             Container.Bind<GameOverView>().FromInstance(_gameOverView).AsSingle();
+            Container.Bind<AudioView>().FromInstance(_audioView).AsSingle();
         }
     }
 }
