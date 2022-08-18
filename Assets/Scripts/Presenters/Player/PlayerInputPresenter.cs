@@ -8,10 +8,10 @@ namespace Presenters.Player
         private readonly PlayerModel _playerModel;
         private readonly InputActions.PlayerActions _playerActions;
 
-        public PlayerInputPresenter(PlayerModel playerModel, InputActions inputActions)
+        public PlayerInputPresenter(PlayerModel playerModel, InputActions.PlayerActions playerActions)
         {
             _playerModel = playerModel;
-            _playerActions = inputActions.Player;
+            _playerActions = playerActions;
         }
 
         public void Disable()
