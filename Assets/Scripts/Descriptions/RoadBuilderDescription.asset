@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: RoadBuilderDescription
   m_EditorClassIdentifier: 
   <DespawnDistance>k__BackingField: 10
-  <RoadLength>k__BackingField: 10
+  <MaxTilesCount>k__BackingField: 6
+  <CoinSpawnChance>k__BackingField: 50
+  <ObstacleSpawnChance>k__BackingField: 30

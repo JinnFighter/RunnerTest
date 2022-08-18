@@ -1,4 +1,5 @@
 using Models;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using Views;
 using Zenject;
@@ -31,6 +32,8 @@ namespace Presenters.Ui
 
         private void EnableWindow()
         {
+            _gameOverView.GameObject.transform.localScale = Vector3.zero;
+            LeanTween.scale(_gameOverView.GameObject, Vector3.one, 0.8f);
             _gameOverView.GameObject.SetActive(true);
             _gameOverView.SetScore(_scoreModel.Score);
             if (_scoreModel.Score > _scoreModel.RecordScore)
@@ -49,6 +52,7 @@ namespace Presenters.Ui
         {
             if (_gameOverView != null)
             {
+                LeanTween.scale(_gameOverView.GameObject, Vector3.zero, 0.8f);
                 _gameOverView.NewRecordGameObject.SetActive(false);
                 _gameOverView.RestartButton.onClick.RemoveListener(OnRestartButtonClicked);
                 _gameOverView.gameObject.SetActive(false);
