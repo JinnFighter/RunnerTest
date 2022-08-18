@@ -23,6 +23,7 @@ namespace Start
         [SerializeField] private ObstacleView _obstacleView;
         [SerializeField] private UiView _uiView;
         [SerializeField] private GameOverView _gameOverView;
+        [SerializeField] private AudioView _audioView;
 
         [SerializeField] private PlayerDescription _playerDescription;
         [SerializeField] private RoadBuilderDescription _roadBuilderDescription;
@@ -84,6 +85,7 @@ namespace Start
             Container.Bind<PlayerPresenter>().AsSingle();
             Container.Bind<UiPresenter>().AsSingle();
             Container.Bind<GameOverViewPresenter>().AsSingle();
+            Container.Bind<AudioPresenter>().AsSingle();
             
             Container.Bind<PresenterContainer>().AsSingle();
         }
@@ -95,6 +97,7 @@ namespace Start
             Container.Bind<RoadStartTileView>().FromInstance(_roadStartTileView).AsSingle();
             Container.Bind<UiView>().FromInstance(_uiView).AsSingle();
             Container.Bind<GameOverView>().FromInstance(_gameOverView).AsSingle();
+            Container.Bind<AudioView>().FromInstance(_audioView).AsSingle();
         }
     }
 }
