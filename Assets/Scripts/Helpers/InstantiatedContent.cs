@@ -15,5 +15,10 @@ namespace Helpers
         {
             return Object.Instantiate(_prefab, position, Quaternion.identity);
         }
+
+        public T Generate(Vector3 position, Transform parent)
+        {
+            return Object.Instantiate(_prefab, position, Quaternion.identity, parent);
+        }
     }
 }
