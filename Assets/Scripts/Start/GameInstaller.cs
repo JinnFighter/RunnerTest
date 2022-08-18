@@ -26,6 +26,7 @@ namespace Start
 
         [SerializeField] private PlayerDescription _playerDescription;
         [SerializeField] private RoadBuilderDescription _roadBuilderDescription;
+        [SerializeField] private AudioDescription _audioDescription;
         
         public override void InstallBindings()
         {
@@ -56,6 +57,7 @@ namespace Start
         {
             Container.Bind<RoadBuilderDescription>().FromScriptableObject(_roadBuilderDescription).AsSingle();
             Container.Bind<PlayerDescription>().FromScriptableObject(_playerDescription).AsSingle();
+            Container.Bind<AudioDescription>().FromScriptableObject(_audioDescription).AsSingle();
         }
 
         private void BindPrefabs()
