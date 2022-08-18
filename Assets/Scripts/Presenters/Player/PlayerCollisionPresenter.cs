@@ -35,12 +35,16 @@ namespace Presenters.Player
                 _playerModel.PickUpCoin();
                 Object.Destroy(gameObject);
             }
+            else if (gameObject.CompareTag("Finish"))
+            {
+                _playerModel.IsAlive = false;
+            }
         }
 
         private void CollisionEnterEvent(Collision collision)
         {
             var gameObject = collision.gameObject;
-            if (gameObject.CompareTag("Obstacle") || gameObject.CompareTag("Finish"))
+            if (gameObject.CompareTag("Obstacle"))
             {
                 _playerModel.IsAlive = false;
             }
