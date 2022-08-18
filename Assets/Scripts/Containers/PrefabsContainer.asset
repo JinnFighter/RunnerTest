@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7180fbdc7506bcd4abc69566e19d6393, type: 3}
+  m_Name: PrefabsContainer
+  m_EditorClassIdentifier: 
+  <CoinView>k__BackingField: {fileID: 340794247464693076, guid: 497eca0fec4ccc148a95d40cf43a61c5, type: 3}
+  <ObstacleView>k__BackingField: {fileID: 339064893228267204, guid: 763fb324bfd831e42b49e7dd07b887f2, type: 3}
+  <RoadMiddleTileView>k__BackingField: {fileID: 7696710000610159643, guid: 6d7643f7da8306744902b2447bc628eb, type: 3}

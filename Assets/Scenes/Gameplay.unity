@@ -271,12 +271,10 @@ MonoBehaviour:
   _viewContainer: {fileID: 1828755577}
   _playerView: {fileID: 8998967182278057112}
   _roadStartTileView: {fileID: 1894587359}
-  _roadMiddleTileView: {fileID: 7696710000610159643, guid: 6d7643f7da8306744902b2447bc628eb, type: 3}
-  _coinView: {fileID: 340794247464693076, guid: 497eca0fec4ccc148a95d40cf43a61c5, type: 3}
-  _obstacleView: {fileID: 339064893228267204, guid: 763fb324bfd831e42b49e7dd07b887f2, type: 3}
   _uiView: {fileID: 1681013438}
   _gameOverView: {fileID: 1350651733}
   _audioView: {fileID: 1609172008}
+  _prefabsContainer: {fileID: 11400000, guid: cffc4364a7ac14e4da244e8fe208cb37, type: 2}
   _descriptionsContainer: {fileID: 11400000, guid: 2f71804e8fa1aa74ab7e3f8fa8c87568, type: 2}
 --- !u!1 &451923991
 GameObject:
