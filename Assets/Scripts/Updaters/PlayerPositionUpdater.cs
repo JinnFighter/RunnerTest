@@ -17,8 +17,9 @@ namespace Updaters
 
         public void Update(float deltaTime)
         {
-            _playerView.SetPosition(_playerView.Transform.position + (Vector3.forward * _playerModel.MoveSpeed + 
-                                                                      _playerModel.StrafeDirection * _playerModel.StrafeSpeed) * deltaTime);
+            _playerView.SetPosition(_playerView.Transform.position +
+                                    (Vector3.forward * _playerModel.MoveSpeed * deltaTime));
+            _playerModel.Position = _playerView.Transform.position;
         }
     }
 }

@@ -23,6 +23,7 @@ namespace Models
         public float MoveSpeed;
         public float StrafeSpeed;
         public Vector3 StrafeDirection;
+        public Vector3 Position;
 
         public PlayerModel(PlayerDescription playerDescription)
         {

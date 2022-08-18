@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _viewContainer: {fileID: 1828755577}
-  _playerView: {fileID: 6635565802188531031, guid: 98755561efd34534a8067b534b38c78f, type: 3}
+  _playerView: {fileID: 8998967182278057112}
   _roadStartTileView: {fileID: 1894587359}
   _roadMiddleTileView: {fileID: 7696710000610159643, guid: 6d7643f7da8306744902b2447bc628eb, type: 3}
   _roadFinishTileView: {fileID: 6634839097797129772, guid: 5b3a47cb7d151184281aff697b288ab5, type: 3}
@@ -1063,6 +1063,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerView
       objectReference: {fileID: 0}
+    - target: {fileID: 6635565802188531029, guid: 98755561efd34534a8067b534b38c78f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6635565802188531030, guid: 98755561efd34534a8067b534b38c78f, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6635565802188531030, guid: 98755561efd34534a8067b534b38c78f, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6638277794037633651, guid: 98755561efd34534a8067b534b38c78f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1085,7 +1097,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6638277794037633651, guid: 98755561efd34534a8067b534b38c78f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 6638277794037633651, guid: 98755561efd34534a8067b534b38c78f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1097,7 +1109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6638277794037633651, guid: 98755561efd34534a8067b534b38c78f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6638277794037633651, guid: 98755561efd34534a8067b534b38c78f, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1126,3 +1138,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6638277794037633651, guid: 98755561efd34534a8067b534b38c78f, type: 3}
   m_PrefabInstance: {fileID: 2377098521547296485}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8998967182278057112 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6635565802188531031, guid: 98755561efd34534a8067b534b38c78f, type: 3}
+  m_PrefabInstance: {fileID: 2377098521547296485}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cb05bea33122f438a097713274d0ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
