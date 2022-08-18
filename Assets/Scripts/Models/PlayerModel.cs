@@ -52,13 +52,13 @@ namespace Models
             ShiftAmount = playerDescription.ShiftAmount;
         }
 
-        public void PickUpCoin()
+        public void PickUpCoin(Vector3 position)
         {
-            CoinPickedUp?.Invoke();
+            CoinPickedUp?.Invoke(position);
         }
 
         public event Action<bool> IsAliveChanged;
-        public event Action CoinPickedUp;
+        public event Action<Vector3> CoinPickedUp;
         public event Action ShiftLeftEvent;
         public event Action ShiftRightEvent;
     }

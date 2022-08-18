@@ -83,6 +83,7 @@ namespace Start
             Container.Bind<PlayerPresenter>().AsSingle();
             Container.Bind<UiPresenter>().AsSingle();
             Container.Bind<GameOverViewPresenter>().AsSingle();
+            Container.Bind<ParticlePresenter>().AsSingle();
             
             Container.Bind<PresenterContainer>().AsSingle();
         }
