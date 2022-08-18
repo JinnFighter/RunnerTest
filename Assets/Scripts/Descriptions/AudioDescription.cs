@@ -6,5 +6,6 @@ namespace Descriptions
     public class AudioDescription : ScriptableObject
     {
         [field: SerializeField] public AudioClip CoinPickUpClip { get; private set; }
+        [field: SerializeField] public AudioClip GameOverClip { get; private set; }
     }
 }

@@ -7,5 +7,6 @@ namespace Views
         [SerializeField] private AudioSource _audioSource;
 
         public void PlaySound(AudioClip audioClip) => _audioSource.PlayOneShot(audioClip);
+        public void StopPlaying() => _audioSource.Stop();
     }
 }

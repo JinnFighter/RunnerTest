@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: AudioDescription
   m_EditorClassIdentifier: 
   <CoinPickUpClip>k__BackingField: {fileID: 8300000, guid: 2c6d53d1a2d16f445bf038015b150894, type: 3}
+  <GameOverClip>k__BackingField: {fileID: 8300000, guid: 763c902cfdec3ef47ae9e2bc51d1a475, type: 3}

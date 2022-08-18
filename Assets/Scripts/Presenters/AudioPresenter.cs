@@ -14,11 +14,22 @@ namespace Presenters
         public void Disable()
         {
             _playerModel.CoinPickedUp -= OnCoinPickedUp;
+            _playerModel.IsAliveChanged -= OnIsAliveChanged;
         }
 
         public void Enable()
         {
             _playerModel.CoinPickedUp += OnCoinPickedUp;
+            _playerModel.IsAliveChanged += OnIsAliveChanged;
+        }
+
+        private void OnIsAliveChanged(bool isAlive)
+        {
+            if (!isAlive)
+            {
+                _audioView.StopPlaying();
+                _audioView.PlaySound(_audioDescription.GameOverClip);
+            }
         }
 
         private void OnCoinPickedUp()
